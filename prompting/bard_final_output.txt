@@ -454,9 +454,9 @@ SELECT players.first_name, players.country_code FROM matches JOIN players ON mat
 SELECT players.first_name, players.country_code FROM players ORDER BY players.birth_date DESC LIMIT 1
 SELECT players.first_name, players.country_code FROM players ORDER BY players.birth_date DESC LIMIT 1
 SELECT players.first_name, players.last_name FROM players ORDER BY players.birth_date
-SELECT players.first_name || ' ' || players.last_name AS full_name FROM players ORDER BY players.birth_date
+SELECT players.first_name, players.last_name AS full_name FROM players ORDER BY players.birth_date
 SELECT players.first_name, players.last_name FROM players WHERE players.hand = 'L' ORDER BY players.birth_date
-SELECT players.first_name || ' ' || players.last_name AS full_name FROM players WHERE players.hand = 'L' ORDER BY players.birth_date
+SELECT players.first_name, players.last_name AS full_name FROM players WHERE players.hand = 'L' ORDER BY players.birth_date
 SELECT players.first_name, players.country_code, COUNT(rankings.tours) AS total_tours FROM players LEFT JOIN rankings ON players.player_id = rankings.player_id GROUP BY players.player_id ORDER BY total_tours DESC LIMIT 1
 SELECT players.first_name, players.country_code FROM players JOIN rankings ON players.player_id = rankings.player_id GROUP BY players.player_id ORDER BY tours DESC LIMIT 1
 SELECT year, COUNT(1) AS match_count FROM matches GROUP BY year ORDER BY match_count DESC LIMIT 1
